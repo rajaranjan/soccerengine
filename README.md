@@ -66,13 +66,23 @@ OpenAPI docs are available at:
 
 ## Player model fields
 
+**Core fields** (all players):
+
 - `player_id` (integer)
 - `name` (string)
-- `goals` (integer)
-- `passes` (integer)
-- `assists` (integer)
-- `shots` (integer)
-- `position` (string)
+- `position` (string) - e.g., "Forward", "Midfielder", "Defender", "Goalkeeper"
 - `age` (integer)
 - `leagues` (list of strings)
 - `matches_own` (integer)
+- `passes` (integer)
+
+**Outfield player stats** (default to 0 for goalkeepers):
+
+- `goals` (integer)
+- `assists` (integer)
+- `shots` (integer)
+
+**Goalkeeper stats** (default to 0 for outfield players):
+
+- `saves` (integer)
+- `clean_sheets` (integer)
