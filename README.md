@@ -26,7 +26,7 @@ A FastAPI project with a Pydantic `Player` model, player routes, and a service l
 
 ## Run locally
 
-Start the app with Uvicorn:
+Start the app on port `8001` with Uvicorn:
 
 uvicorn app.main:app --reload --port 8001
 
