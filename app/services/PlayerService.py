@@ -10,9 +10,9 @@ def calculate_score(player: dict) -> int:
     wf_shots = 0.25
 
     # Midfielder player ranking based on weighted factors
-    wm_goals = 0.25
-    wm_assists = 0.35
-    wm_passes = 0.25
+    wm_goals = 0.15
+    wm_assists = 0.3
+    wm_passes = 0.2
     wm_shots = 0.15
 
     # Defender player ranking based on weighted factors
@@ -27,19 +27,19 @@ def calculate_score(player: dict) -> int:
     wg_passes = 0.15
 
     if player["position"] == "Forward":
-        score = wf_goals * player["goals"] + wf_assists * player["assists"] + wf_passes * player["assists"] + wf_shots * player["shots"]
+        score = wf_goals * player["goals"] + wf_assists * player["assists"] + wf_passes * player["passes"]/10 + wf_shots * player["shots"]
         return round(score, 2)
 
     elif player["position"] == "Midfielder":
-        score = wm_goals * player["goals"] + wm_assists * player["assists"] + wm_passes * player["assists"] + wm_shots * player["shots"]
+        score = wm_goals * player["goals"] + wm_assists * player["assists"] + wm_passes * player["passes"]/10 + wm_shots * player["shots"]
         return round(score, 2)
 
     elif player["position"] == "Defender":
-        score = wd_goals * player["goals"] + wd_assists * player["assists"] + wd_passes * player["assists"] + wd_shots * player["shots"]
+        score = wd_goals * player["goals"] + wd_assists * player["assists"] + wd_passes * player["passes"]/10 + wd_shots * player["shots"]
         return round(score, 2)
             
     elif player["position"] == "Goalkeeper":
-        score = wg_saves * player["saves"] + wg_clean_sheets * player["clean_sheets"] + wg_passes * player["assists"]
+        score = wg_saves * player["saves"] + wg_clean_sheets * player["clean_sheets"] + wg_passes * player["passes"]/10
         return round(score, 2)
 
 def list_players(position: str | None = None) -> list[Player]:
